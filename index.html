@@ -27,7 +27,7 @@
                     <div
                         class="single-todo"
                         @click="task.done = !task.done"
-                        :class="task.done ? 'done' : ''"
+                        :class="{ done : task.done }"
                     >
                         <p>{{ task.text }} </p>
                     </div>
