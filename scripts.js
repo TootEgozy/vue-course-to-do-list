@@ -24,14 +24,22 @@ const appData = {
         },
         clearTasks() {
             this.tasks = [];
+            localStorage.removeItem('tasks');
         },
         addTask() {
             if(this.newTaskText.length) {
-                this.tasks.push({ text: this.newTaskText, done: false });
+                const newTask = { text: this.newTaskText, done: false };
+                this.tasks.push(newTask);
                 this.newTaskText = "";
             }
             else alert("Doing nothing is already achieved");
+        },
+        storeTasks() {
+            localStorage.setItem('tasks', JSON.stringify(this.tasks));
         }
+    },
+    created() {
+        this.tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
     }
 }
 

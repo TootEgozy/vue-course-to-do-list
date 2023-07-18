@@ -26,7 +26,7 @@
                 >
                     <div
                         class="single-todo"
-                        @click="task.done = !task.done"
+                        @click="task.done = !task.done; storeTasks()"
                         :class="{ done : task.done }"
                     >
                         <p>{{ task.text }} </p>
@@ -36,7 +36,7 @@
 
                 <button
                         class="clear"
-                        @click="clearTasks()"
+                        @click="clearTasks(); storeTasks()"
                         v-if="tasks.length"
                 >
                     Clear All
@@ -49,7 +49,7 @@
                 >
                 <button
                         class="add"
-                        @click="addTask()"
+                        @click="addTask(); storeTasks()"
                 >
                     Add
                 </button>
