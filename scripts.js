@@ -32,7 +32,7 @@ const appData = {
                 this.tasks.push(newTask);
                 this.newTaskText = "";
             }
-            else alert("Doing nothing is already achieved");
+            else alert("Doing nothing is already achieved!");
         },
         storeTasks() {
             localStorage.setItem('tasks', JSON.stringify(this.tasks));
